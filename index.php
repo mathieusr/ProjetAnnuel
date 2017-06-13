@@ -8,8 +8,6 @@
                     <a href="articles/articleRead.php?articleId=<?php echo $article['id'] ?>" style="color:#2980b9;"><?php echo $article['title'] ?></a>
                 </h3>
             </div>
-ssss
-
         <?php endforeach; ?>
     </div>
 </div>
