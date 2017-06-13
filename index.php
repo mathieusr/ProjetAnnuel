@@ -12,7 +12,7 @@
     </div>
 </div>
 <div>
-    <p>Test</p>
+    <p>Test4</p>
 </div>
 <?php require FolderSettings."/footer.php"; ?>
 
