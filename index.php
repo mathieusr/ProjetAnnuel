@@ -11,7 +11,9 @@
         <?php endforeach; ?>
     </div>
 </div>
-
+<div>
+    <p>Test</p>
+</div>
 <?php require FolderSettings."/footer.php"; ?>
 
 
