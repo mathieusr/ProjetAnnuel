@@ -1,0 +1,10 @@
+<?php
+if(!defined('PARENT')){define('PARENT','projetAnnuel');}
+if(!defined('FolderAdmin')){define('FolderAdmin','admin');}
+if(!defined('FolderArticle')){define('FolderArticle','articles');}
+if(!defined('FolderConf')){define('FolderConf','conf');}
+if(!defined('FolderConfConn')){define('FolderConfConn','confConn');}
+if(!defined('FolderConfCss')){define('FolderConfCss','confCss');}
+if(!defined('FolderConfJs')){define('FolderConfJs','confJs');}
+if(!defined('FolderFont')){define('FolderFont','fonts');}
+if(!defined('FolderImg')){define('FolderImg','img');}
