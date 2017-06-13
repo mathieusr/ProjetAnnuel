@@ -1,6 +1,6 @@
 <?php
     $minrole=4;
-    require "../conf/header.php";
+    require "../settings/header.php";
     require "adminUsersData.php";
 ?>
 <div class="row">
@@ -115,4 +115,4 @@
         </div>
     <?php endif;?>
 </div>
-<?php require "../conf/footer.php"; ?>
+<?php require "../".FolderSettings."/footer.php"; ?>

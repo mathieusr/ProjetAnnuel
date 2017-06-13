@@ -1,6 +1,6 @@
 <?php
 $minrole = 0;
-require "../conf/header.php";
+require "../settings/header.php";
 if(!empty($_SESSION['userInformation'])){header('Location: ../index.php');}
 if(!empty($_SESSION['form_post'])){
     foreach ($_SESSION['form_post'] as $key => $value) {
@@ -64,4 +64,4 @@ if(!empty($_SESSION['form_post'])){
     </form>
 </div>
 
-<?php require "../".FolderConf."/footer.php"; ?>
+<?php require "../".FolderSettings."/footer.php"; ?>

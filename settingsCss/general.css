@@ -1,0 +1,222 @@
+*{
+  box-sizing: border-box;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.divTable{
+    display: flex;
+    flex-direction: column;
+}
+
+.divTbody{
+    display: flex;
+    flex-direction: column;
+}
+
+.divTr{
+    display: flex;
+    flex-direction: row;
+}
+
+.childCat{
+    margin-left: 8px;
+}
+/**************************** Arrière plan popup ********************************************/
+.popupback{
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+.popupt{
+    display: inline-block;
+    background-color: #fff;
+    position: fixed;
+    width: 500px;
+    top : 50px;
+    left:0;
+    right:0;
+    margin: auto;
+    display:none;
+    padding: 0px 30px 20px 30px;
+}
+
+.statusPopup{
+    background-color: #014e8e;
+    position: fixed;
+    width: 30%;
+    top: 10px;
+    left: 35%;
+    color:#fff;
+    z-index: 21;
+    border-radius: 4px;
+    padding: 4px 4px 4px 20px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    transition: transform 2s;
+    display: none;
+}
+/**************************** CSS du menu ********************************************/
+.bandeau1{
+  width: 100%;
+  height: 40px;
+  background-color: #272727;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+    z-index: 20;
+}
+
+.menuIcon{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.bandeau1 .menuIcon span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #FFF;
+    transition: transform 0.2s;
+}
+
+.bandeau1 .menuIcon span::before,.bandeau1 .menuIcon span::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-6px);
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #FFF;
+    transition: transform 0.2s;
+}
+.bandeau1 .menuIcon span::after {
+    transform: translateY(6px);
+}
+.bandeau1.open .menuIcon span{
+  background: transparent;
+}
+.bandeau1.open .menuIcon span::before,.bandeau1.open .menuIcon span::after{
+  transform: rotate(45deg);
+}
+.bandeau1.open .menuIcon span::after{
+  transform: rotate(-45deg);
+}
+.bandeau2{
+  height: 100%;
+  width: 300px;
+  background-color: #272727;
+  position:fixed;
+  left:0;
+  top:40px;
+  transform: translateX(-300px);
+  transition: transform 0.2s;
+z-index: 20;
+    padding: 10px 10px 40px 20px;
+}
+.bandeau2.open{
+  transform: translateX(0px);
+}
+.menucategory{
+    border-bottom: solid 1px #1d1d1d;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+.menucategory p,.menucategory a{
+    color:#fff;
+    font-size: 20px;
+}
+.menucategory div{
+    padding-left: 20px;
+}
+.menucategory div a{
+    font-size: inherit;
+    color: rgb(102, 102, 102);
+}
+/************************************** *****************************************************/
+.contenu{
+  margin-top: 40px;
+  padding: 20px;
+}
+
+/************* CSS lié à l'éditeur de texte ***************/
+.WriteArticle .popup{
+    display:none;
+    position:absolute;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    padding: 4px 4px 4px 4px;
+    width: 150px;
+}
+.WriteArticle img{
+    max-width: 100%;
+}
+.WriteArticle .articleBlock{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px 10px 10px;
+}
+.WriteArticle .articleBlock:nth-child(even){
+    background-color: #ddd;
+}
+.WriteArticle .lead{
+    margin:0;
+}
+.WriteArticle .imagePresentation,.container .imagePresentation,.modal .imagePresentation{
+    width:250px;
+    height:150px;
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 10px;
+    padding: 0px;
+}
+.popup .textColor{
+    display: flex;
+    flex-wrap: wrap;
+}
+.popup .textColor div{
+    width:16px;
+    height: 16px;
+    margin-left:2px;
+    cursor: pointer;
+    user-select: none;
+}
+.popup .textColor div:hover{
+    border: 1px solid #000;
+}
+
+/************ CSS appliqué lors de la lecture des articles **************/
+.articleDisplay .articleText img{
+    max-width: 600px;
+}
+
+/* CSS lié à la boutique*/
+.deleteCross{
+    background-color: rgba(0,0,0,0.4);
+    width: 24px;
+    height: 24px;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

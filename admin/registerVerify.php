@@ -1,8 +1,8 @@
 <?php
-require "../conf/confFolderName.php";
-require "../".FolderConfConn."/confConn.php";
-require "../".FolderConf."/lib.php";
-require "../".FolderConf."/functions.php";
+require "../settings/FolderName.php";
+require "../".FolderDb."/db.php";
+require "../".FolderSettings."/lib.php";
+require "../".FolderSettings."/functions.php";
 $error=false;
 
 unset($_POST['login']);
@@ -139,7 +139,7 @@ $_POST["lastname"] = trim($_POST["lastname"]);
         $userId = $pdo->lastInsertId();
         sendmail($_POST['email'],'Validation de votre compte',"Votre inscription a bien été prise en compte. Pour valider votre compte merci de vous rendre sur le lien suivant:<br><a href='{$_SERVER['HTTP_HOST']}/".FolderAdmin."/requestValidation.php?id={$userId}&token={$key}'>Valider mon compte</a>");
         $_SESSION['status']['success'][]="Votre inscription à été prise en compte, pour activer votre compte, veuillez suivre les instructions que vous allez recevoir par mail";
-        $_SESSION['status']['success'][]="{$_SERVER['HTTP_HOST']}/".PARENT."/".FolderAdmin."/requestValidation.php?id={$userId}&token={$key}";
+        $_SESSION['status']['success'][]="{$_SERVER['HTTP_HOST']}/".FolderAdmin."/requestValidation.php?id={$userId}&token={$key}";
         header('Location: ../index.php');
         header('Location: ../index.php');
     }

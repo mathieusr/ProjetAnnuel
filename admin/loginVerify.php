@@ -1,8 +1,8 @@
 <?php
-require "../conf/confFolderName.php";
-require "../".FolderConfConn."/confConn.php";
-require "../".FolderConf."/lib.php";
-require "../".FolderConf."/functions.php";
+require "../settings/FolderName.php";
+require "../".FolderDb."/db.php";
+require "../".FolderSettings."/lib.php";
+require "../".FolderSettings."/functions.php";
 $error=false;
 
 session_start();
@@ -29,5 +29,6 @@ count($_POST)== 2
     }
 
 }else{
-    echo "Bien essayé !";
+    $_SESSION['status']['danger'][] = "Formulaire Invalide";
+    header('Location: login.php');
 }

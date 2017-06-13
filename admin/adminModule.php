@@ -1,4 +1,4 @@
-<?php $minrole=4; require "../conf/header.php"; ?>
+<?php $minrole=4; require "../settings/header.php"; ?>
 <?php require "adminModuleData.php"; ?>
 <div class="row">
     <div class="row">
@@ -194,4 +194,4 @@
     <hr>
 
 </div>
-<?php require "../conf/footer.php";
+<?php require "../".FolderSettings."/footer.php";

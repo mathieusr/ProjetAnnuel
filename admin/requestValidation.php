@@ -1,5 +1,6 @@
 <?php
-require "../confConn/confConn.php";
+require "../settings/FolderName.php";
+require "../".FolderDb."/db.php";
 session_start();
 if(!empty($_GET['token']) && !empty($_GET['id'])){
     $token = $_GET['token'];

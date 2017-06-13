@@ -1,4 +1,7 @@
-<?php $minrole= 4; require "../conf/header.php"; require "articlesData.php";?>
+<?php $minrole= 4; 
+	require "../settings/header.php";
+	require "articlesData.php";?>
+	
     <div class="row">
         <h3>Tous les articles</h3>
         <a href="articles.php?action=addarticle">Ajouter un nouvelle article</a>
@@ -8,26 +11,26 @@
                     <tr>
                         <th width="40">Id</th>
                         <th>Titre</th>
-                        <th>Contenu</th>
+                        <!--<th>Contenu</th>-->
                         <th width="160">Dernière Modification</th>
                         <th width="80">Status</th>
-                        <td width="80">Modifier</td>
-                        <td width="80"></td>
+                        <th width="80">Modifier</th>
+                        <th width="80"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach($allarticles as $key => $articles): ?>
                         <tr>
-                            <td><?= $articles['id'] ?></td>
-                            <td><?= $articles['title'] ?></td>
-                            <td><?= substr($articles['text'],0,50)."..." ?></td>
-                            <td><?= $articles['dtModification'] ?></td>
+                            <td><?php echo $articles['id'] ?></td>
+                            <td><?php echo $articles['title'] ?></td>
+                            <!--<td><?php /*echo htmlspecialchars(substr($articles['text'],0,50)) */?></td>-->
+                            <td><?php echo $articles['dtModification'] ?></td>
                             <td><?php echo $articles['isPublish']==1?'Publié':'Brouillon'; ?></td>
-                            <td><a href="articlesWrite.php?articleId=<?= $articles['id']?>">Editer</a></td>
+                            <td><a href="articlesWrite.php?articleId=<?php echo $articles['id']?>">Editer</a></td>
                             <?php if($articles['isPublish']==1): ?>
-                                <td><a href="articles.php?articleId=<?= $articles['id']?>&action=unpost">Retirer</a></td>
+                                <td><a href="articles.php?articleId=<?php echo $articles['id']?>&action=remove">Retirer</a></td>
                             <?php else: ?>
-                                <td><a href="articles.php?articleId=<?= $articles['id']?>&action=post">Publier</a></td>
+                                <td><a href="articles.php?articleId=<?php echo $articles['id']?>&action=publish">Publier</a></td>
                             <?php endif; ?>
 
                         </tr>
@@ -37,4 +40,4 @@
         </div>
     </div>
 <?php
-require "../".FolderConf."/footer.php";
+require "../".FolderSettings."/footer.php";

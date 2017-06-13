@@ -1,6 +1,6 @@
 <?php
 $minrole = 0;
-require "../conf/header.php";
+require "../settings/header.php";
 if(!empty($_SESSION['userInformation'])){header('Location: ../index.php');}
 if(!empty($_SESSION['form_post'])){
 foreach ($_SESSION['form_post'] as $key => $value) {
@@ -11,7 +11,7 @@ unset($_SESSION['form_post']);
 ?>
 <div class="row">
     <h3>Réinitialisation mot de passe</h3>
-    <form method="POST" class="col-md-12" action="http://localhost/projetAnnuel/admin/requirePasswordGenerate.php">
+    <form method="POST" class="col-md-12" action="/admin/requirePasswordGenerate.php">
         <div class="form-group">
             <label for="categoryname">Entrez votre email</label>
             <input type="text" class="form-control" name="email" id="usersmail" placeholder="Email" value='<?= isset($values['email'])?$values['email']:''?>'>
@@ -20,4 +20,4 @@ unset($_SESSION['form_post']);
     </form>
 
 </div>
-<?php require "../conf/footer.php"?>
+<?php require "../".FolderSettings."/footer.php"?>

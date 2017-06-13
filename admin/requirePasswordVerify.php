@@ -1,15 +1,15 @@
 <?php
 $minrole = 0;
-require "../conf/header.php";
-require "../confConn/confConn.php";
-require "../conf/lib.php";
-require "../conf/functions.php";
+require "../settings/header.php";
+require "../".FolderDb."/db.php";
+require "../".FolderSettings."/lib.php";
+require "../".FolderSettings."/functions.php";
 
 if(!empty($_GET['token']) && !empty($_GET['id'])){
     $token = $_GET['token'];
     $userId =(int) $_GET['id'];
 
-    $exec = $pdo->prepare("SELECT id,passwordtoken FROM USERS WHERE id=:id AND DATE_PART('day', current_timestamp - passworddate) * 24 + DATE_PART('hour', current_timestamp - passworddate) * 60 + DATE_PART('minute', current_timestamp - passworddate) < 30 ");
+    $exec = $pdo->prepare("SELECT id,passwordtoken FROM USERS WHERE id=:id AND  DATEDIFF(minute,passwordDate,GETDATE()) < 30 ");
     $exec->bindParam('id',$userId);
     $exec->execute();
     $info = $exec->fetch(PDO ::FETCH_ASSOC);
@@ -17,13 +17,13 @@ if(!empty($_GET['token']) && !empty($_GET['id'])){
         if(!empty($_POST['pwd']) && !empty($_POST['pwd2']) && $_POST['pwd'] == $_POST['pwd2'] && strlen($_POST['pwd']) >= 6 && strlen($_POST['pwd']) <= 16 ){
             $password = password_hash($_POST['pwd'],PASSWORD_BCRYPT);
             var_dump($password);
-            $exec = $pdo->prepare("UPDATE USERS SET passwordtoken=NULL,datemodification=NOW(),password=:pwd,passworddate=NOW() WHERE id=:id");
+            $exec = $pdo->prepare("UPDATE USERS SET passwordtoken=NULL,datemodification=GETDATE(),password=:pwd,passworddate=GETDATE() WHERE id=:id");
             $exec->bindParam('id',$info['id']);
             $exec->bindParam('pwd',$password);
             $exec->execute();
             $_SESSION['status']['success'][]="Votre mot de passe a bien été modifié";
 
-            $exec = $pdo->prepare("SELECT firstname||' '||lastname AS fullname,id,email,password,roleid FROM USERS WHERE id=:id AND isactive=1");
+            $exec = $pdo->prepare("SELECT firstname+' '+lastname AS fullName,id,email,password,roleid FROM USERS WHERE id=:id AND isactive=1");
             $exec->bindValue(':id',$info['id'],PDO::PARAM_STR);
             $exec->execute();
             $userdetails = $exec->fetch(PDO::FETCH_ASSOC);
@@ -65,4 +65,4 @@ if(!empty($_GET['token']) && !empty($_GET['id'])){
     </form>
 
 </div>
-<?php require "../conf/footer.php"?>
+<?php require "../".FolderSettings."/footer.php"?>
